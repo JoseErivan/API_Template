@@ -39,4 +39,10 @@ public class EmployeeController {
         EmployeeDTO employeeDTOReturned = employeeService.updateEmployee(employeeId, employeeDTO);
         return ResponseEntity.ok(employeeDTOReturned);
     }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<?> deleteEmployeeById(@PathVariable("id") Long employeeId) {
+        employeeService.deleteEmployee(employeeId);
+        return ResponseEntity.noContent().build();
+    }
 }
